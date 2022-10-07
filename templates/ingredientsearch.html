@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Search by Ingredient</h1>
+
+<button type="button" class="btn btn-secondary" id="vodka">Vodka</button>
+<button type="button" class="btn btn-secondary" id="gin">Gin</button>
+<button type="button" class="btn btn-secondary" id="whiskey">Whiskey</button>
+<button type="button" class="btn btn-secondary" id="bourbon">Bourbon</button>
+<button type="button" class="btn btn-secondary" id="scotch">Scotch</button>
+<button type="button" class="btn btn-secondary" id="rum">Rum</button>
+<button type="button" class="btn btn-secondary" id="tequila">Tequila</button>
+<button type="button" class="btn btn-secondary" id="brandy">Brandy</button>
+<p>Or search for an ingredient by name:</p>
+<form class="form-inline" id="search-form">
+    <input class "form-control" id = "search-query" value="">
+    <button class="btn btn-primary" type="submit">Search</button>
+</form>
+<div class="cocktails-list">
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="http://unpkg.com/jquery"></script>
+<script src="http://unpkg.com/axios/dist/axios.js"></script>
+<script src="/static/ingredient.js"></script>
+{% endblock %}

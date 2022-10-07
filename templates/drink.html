@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ cocktail.strDrink }}</h1> <form method="POST" action='/favorite/{{ cocktail.idDrink }}'><button type="submit" class = "btn btn-warning btn-sm"> {{ star }} </button></form>
+<div><img src="{{ cocktail.strDrinkThumb }}/preview"></div>
+<h3>Ingredients</h3>
+<ul>
+  {% for i in range(ingredients | count) %}
+    <li>{{ measurements[i]}} {{ ingredients[i] }}</li>
+  {% endfor %}
+</ul>
+<h3>Instructions</h3>
+<p>{{ cocktail.strInstructions }}</p>
+{% endblock %}

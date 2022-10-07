@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ user.username }}'s Favorite Drinks</h1>
+<div class="cocktails-list">
+    {% for favorite in favorites %}
+       
+     <a href="/drinks/{{ favorite.id }}"> <div id="{{ favorite.name }}" class="drink">
+        <b>{{ favorite.name }}</b> 
+        <img src="{{ favorite.img }}/preview">
+        </div></a>
+    {% endfor %}
+</div>
+{% endblock %}
