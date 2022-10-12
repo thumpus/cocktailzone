@@ -6,7 +6,7 @@ from forms import RegisterForm, LoginForm
 import requests, os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://flask-heroku'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://flask-heroku')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
 
@@ -15,7 +15,7 @@ CURR_USER_KEY = 'curr_user'
 connect_db(app)
 db.create_all()
 
-app.config['SECRET_KEY'] = "secrets"
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'secrets')
 
 @app.before_request
 
