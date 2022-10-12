@@ -15,7 +15,7 @@ CURR_USER_KEY = 'curr_user'
 connect_db(app)
 db.create_all()
 
-app.config['SECRET_KEY'] = "I'LL NEVER TELL!!"
+app.config['SECRET_KEY'] = "secrets"
 
 @app.before_request
 
