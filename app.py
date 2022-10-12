@@ -3,10 +3,14 @@ from flask import Flask, redirect, render_template, flash, session, g
 from sqlalchemy.exc import IntegrityError
 from models import connect_db, db, User, Favorite
 from forms import RegisterForm, LoginForm
-import requests, os
+import requests, os, re
+
+uri = os.environ.get('DATABASE_URL', 'postgresql://flask-heroku')
+if uri.startswith('postgres://'):
+    uri = uri.replace("postgres://", "postgresql://", 1)
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.getenv('DATABASE_URL', 'postgresql://flask-heroku')
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = False
 
