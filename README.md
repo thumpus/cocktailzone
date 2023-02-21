@@ -9,3 +9,5 @@ When the app is loaded, it presents the user with buttons for the main search pa
 
 The main structure of the app uses Flask, and uses Flask-SQLAlchemy for the accounts system. Each of the search pages populates its results
 by pulling data from the API and updating the page via javascript. 
+
+NOTE: The "all cocktails" section is not 100% accurate- it doesn't retrieve *every* cocktail from the database. This is a limitation of the free version of this API which only gives the first 100 results to a given query. This would potentially be an easy fix by buying a premium subscription for this API to get a production key, but I cannot justify that cost at this time.
